@@ -1,0 +1,312 @@
+.page {
+  min-height: 100dvh;
+  background: #0a0a0f;
+  padding: 0 0 60px;
+}
+
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+// Header
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid #22223a;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background: #22223a;
+}
+
+.headerMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.headerTitle {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.headerSub {
+  color: #9090a8;
+  font-size: 11px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.updateCount {
+  text-align: right;
+
+  &Label {
+    font-size: 11px;
+    color: #9090a8;
+    margin-bottom: 2px;
+  }
+
+  &Value {
+    font-size: 13px;
+    font-weight: 700;
+    color: #a78bfa;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.connBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #13131a;
+  border: 1px solid #22223a;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.connDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+
+  &Live {
+    animation: pulseDot 1.8s ease-in-out infinite;
+  }
+}
+
+// Tags
+.tags {
+  display: flex;
+  gap: 8px;
+  padding: 12px 0;
+  overflow-x: auto;
+}
+
+// Loading
+.loading {
+  text-align: center;
+  padding: 80px 0;
+  color: #9090a8;
+
+  &Icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+}
+
+// Metrics grid
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+// Charts
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartCard {
+  background: #13131a;
+  border: 1px solid #22223a;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.chartLabel {
+  font-size: 11px;
+  color: #9090a8;
+  margin-bottom: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+// Regions
+.regionsCard {
+  margin-top: 16px;
+  background: #13131a;
+  border: 1px solid #22223a;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.regionsLabel {
+  font-size: 11px;
+  color: #9090a8;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.regionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+// Note
+.note {
+  margin-top: 20px;
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 13px;
+  color: #9090a8;
+  display: flex;
+  gap: 12px;
+
+  &Icon {
+    color: #818cf8;
+    flex-shrink: 0;
+  }
+
+  code {
+    color: #a5b4fc;
+    background: #1e1e2e;
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+}
+
+// MetricCard
+.metricCard {
+  background: #13131a;
+  border: 1px solid #22223a;
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.metricTitle {
+  font-size: 11px;
+  color: #9090a8;
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.metricValue {
+  font-size: 28px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+}
+
+.metricBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.metricBarFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+// RegionCard
+.regionCard {
+  background: #0a0a0f;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #22223a;
+}
+
+.regionTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.regionName {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.regionStatus {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.regionUsers {
+  font-size: 22px;
+  font-weight: 800;
+  color: #a78bfa;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 8px;
+}
+
+.regionProgressWrap {
+  height: 4px;
+  background: #22223a;
+  border-radius: 2px;
+  margin-bottom: 4px;
+}
+
+.regionProgress {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(to right, #6366f1, #a78bfa);
+  transition: width 0.5s ease;
+}
+
+.regionPct {
+  font-size: 11px;
+  color: #9090a8;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.85); }
+}
