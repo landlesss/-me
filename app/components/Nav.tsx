@@ -3,13 +3,10 @@ import s from "./Nav.module.scss";
 export default function Nav() {
   return (
     <nav className={s.nav}>
-      <div className={s.logo}>
-        <span className={s.logoAccent}>dev</span>
-        <span className={s.logoDim}>.portfolio</span>
-      </div>
-      <div className={s.actions}>
-        <a href="#cases" className="ghost-btn">Cases</a>
-        <a href="mailto:hello@example.com" className="glow-btn">Hire me</a>
+      <div className={s.logo}>Your Name</div>
+      <div className={s.links}>
+        <a href="#projects" className={s.link}>Projects</a>
+        <a href="#contacts" className={s.link}>Contact</a>
       </div>
     </nav>
   );

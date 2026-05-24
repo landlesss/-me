@@ -1,12 +1,13 @@
 import Link from "next/link";
 import s from "./CaseCard.module.scss";
 
-export type Case = {
+type Case = {
   href: string;
-  icon: string;
   accentColor: string;
+  label: string;
   title: string;
-  desc: string;
+  what: string;
+  why: string;
   tags: string[];
   metrics: { label: string; value: string }[];
   cta: string;
@@ -15,84 +16,78 @@ export type Case = {
 const CASES: Case[] = [
   {
     href: "/chat",
-    icon: "✦",
     accentColor: "#818cf8",
-    title: "LLM Chat with Token Streaming",
-    desc: "Fullstack chat with Server-Sent Events — messages stream token by token, exactly as in ChatGPT. Built for STATEIS, adapted as a public demo.",
-    tags: ["Next.js API Routes", "SSE / Streaming", "React", "TypeScript"],
+    label: "Live demo",
+    title: "LLM Chat — Token Streaming",
+    what: "A chat interface where the AI response streams word by word in real time — the same pattern used in ChatGPT and Claude.",
+    why: "The product I was building (STATEIS) needed AI responses that felt instant, not batch-loaded. I built the full pipeline: Next.js Edge API route → Server-Sent Events → React state updates on every token.",
+    tags: ["Next.js Edge Runtime", "SSE", "React", "TypeScript"],
     metrics: [
-      { label: "Latency to first token", value: "< 300 ms" },
-      { label: "Architecture", value: "Edge-ready" },
+      { label: "First token latency", value: "< 300 ms" },
+      { label: "Transport", value: "SSE / ReadableStream" },
     ],
-    cta: "Open Chat →",
+    cta: "Open chat →",
   },
   {
     href: "/dashboard",
-    icon: "◈",
     accentColor: "#a78bfa",
-    title: "Real-Time WebSocket Dashboard",
-    desc: "Metrics dashboard with live data over WebSockets. Animated counters, live charts, connection-state management — all without a single polling request.",
-    tags: ["WebSockets", "React", "Real-time", "TypeScript"],
+    label: "Live demo",
+    title: "Real-Time Metrics Dashboard",
+    what: "A dashboard that shows live server metrics — users, RPS, latency, errors — updating every 500 ms without a single polling request.",
+    why: "Polling-based dashboards add latency and waste bandwidth. I used Server-Sent Events to push updates from the server the moment data changes, with animated counters and SVG charts built from scratch.",
+    tags: ["SSE", "EventSource API", "React", "SVG charts"],
     metrics: [
-      { label: "Update interval", value: "~500 ms" },
-      { label: "Protocol", value: "WS / fallback SSE" },
+      { label: "Update interval", value: "500 ms" },
+      { label: "Transport", value: "SSE / EventSource" },
     ],
-    cta: "Open Dashboard →",
+    cta: "Open dashboard →",
   },
 ];
 
 export default function CaseCards() {
   return (
-    <section id="cases">
-      <div className={s.sectionLabel}>
-        <span>Case Studies</span>
-      </div>
-      <h2 className={s.sectionTitle}>
-        Production demos,<br />
-        <em>click to explore</em>
-      </h2>
+    <section id="projects" className={s.section}>
+      <div className={s.sectionTitle}>Projects</div>
 
       <div className={s.grid}>
         {CASES.map((c) => (
           <Link key={c.href} href={c.href} className={s.card}>
-            <div className={s.cardTop}>
-              <div
-                className={s.icon}
-                style={{
-                  background: `${c.accentColor}18`,
-                  border: `1px solid ${c.accentColor}30`,
-                  color: c.accentColor,
-                }}
-              >
-                {c.icon}
-              </div>
-              <div className={s.liveLabel}>
-                <div className="live-dot" />
-                Live Demo
-              </div>
+
+            <div className={s.cardHeader}>
+              <span className={s.label} style={{ color: c.accentColor }}>
+                <span className="live-dot" style={{ marginRight: 6 }} />
+                {c.label}
+              </span>
             </div>
 
-            <div>
-              <h3 className={s.title}>{c.title}</h3>
-              <p className={s.desc}>{c.desc}</p>
+            <h3 className={s.title}>{c.title}</h3>
+
+            <div className={s.block}>
+              <div className={s.blockLabel}>What</div>
+              <p className={s.blockText}>{c.what}</p>
+            </div>
+
+            <div className={s.block}>
+              <div className={s.blockLabel}>Why / How</div>
+              <p className={s.blockText}>{c.why}</p>
             </div>
 
             <div className={s.metrics}>
               {c.metrics.map((m) => (
-                <div key={m.label}>
+                <div key={m.label} className={s.metric}>
                   <div className={s.metricLabel}>{m.label}</div>
                   <div className={s.metricValue} style={{ color: c.accentColor }}>{m.value}</div>
                 </div>
               ))}
             </div>
 
-            <div className={s.tags}>
-              {c.tags.map((t) => <span key={t} className="tag">{t}</span>)}
+            <div className={s.footer}>
+              <div className={s.tags}>
+                {c.tags.map((t) => <span key={t} className="tag">{t}</span>)}
+              </div>
+              <span className={s.cta} style={{ color: c.accentColor }}>{c.cta}</span>
             </div>
 
-            <div className={s.cta} style={{ color: c.accentColor }}>
-              {c.cta}
-            </div>
           </Link>
         ))}
       </div>
