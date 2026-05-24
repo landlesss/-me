@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className={s.hero}>
       <h1 className={`${s.name} fade-up`}>
-        Your Name
+        Sara Landau
       </h1>
 
       <p className={`${s.subtitle} fade-up-2`}>

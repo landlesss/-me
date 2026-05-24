@@ -1,7 +1,7 @@
 import s from "./Contacts.module.scss";
 
 const LINKS = [
-  { label: "Email",    href: "mailto:hello@example.com", text: "hello@example.com" },
+  { label: "Email",    href: "mailto:alaskalaska22@gmail.com", text: "alaskalaska22@gmail.com" },
   { label: "LinkedIn", href: "https://linkedin.com",     text: "linkedin.com/in/yourname" },
   { label: "GitHub",   href: "https://github.com",       text: "github.com/landlesss" },
   { label: "CV",       href: "/cv.pdf",                  text: "Download PDF", download: true },
