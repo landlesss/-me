@@ -1,12 +1,15 @@
 import s from "./Skills.module.scss";
 
 const SKILLS = [
-  "React", "Next.js", "TypeScript", "JavaScript",
+  "React", "Next.js", "Vue.js", "TypeScript", "JavaScript",
   "WebSockets", "HTTP Streaming", "SSE",
-  "Redux Toolkit", "React Query", "Zustand",
-  "Node.js", "REST", "AI tools",
-  "Firebase", "Agora RTC", "Vercel",
-  "SCSS", "Tailwind CSS",
+  "Redux Toolkit", "TanStack Query", "MobX", "Pinia", "Zustand",
+  "REST API", "GraphQL",
+  "Jest", "React Testing Library", "Cypress",
+  "Vite", "Tailwind CSS", "CSS Modules", "SCSS",
+  "Node.js", "Firebase", "Agora RTC", "Vercel",
+  "GitHub", "GitLab", "Sentry",
+  "SOLID", "DRY", "AI tools",
 ];
 
 export default function Skills() {
